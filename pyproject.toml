@@ -1,0 +1,45 @@
+[project]
+name = "ragmux"
+version = "0.1.0"
+description = "RAGMux：单实例多知识库管理层，基于 LightRAG 实现知识库层级的运行时增删改查"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "lightrag-hku>=1.3.0",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sqlalchemy[asyncio]>=2.0",
+    "aiosqlite>=0.20",
+    "pydantic-settings>=2.0",
+    "python-multipart>=0.0.9",
+    "openai>=3.14.1",
+    "ollama>=0.6.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragmux"]
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

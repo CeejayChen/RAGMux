@@ -1,0 +1,242 @@
+/* 全局样式：LightRAG WebUI 风格的暗色管理界面 */
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+:root.dark {
+  --rmx-bg: #0b1020;
+  --rmx-panel: #111832;
+  --rmx-border: #232c4d;
+  --rmx-accent: #7c8cf8;
+}
+
+html:not(.dark) {
+  --rmx-bg: #f4f6fb;
+  --rmx-panel: #ffffff;
+  --rmx-border: var(--el-border-color-light);
+  --rmx-accent: var(--el-color-primary);
+}
+
+.app-shell {
+  display: flex;
+  height: 100%;
+  background: var(--rmx-bg);
+}
+
+/* ---------------- 左侧栏 ---------------- */
+
+.sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--rmx-panel);
+  border-right: 1px solid var(--rmx-border);
+}
+
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--rmx-border);
+}
+
+.sidebar-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rmx-accent);
+  letter-spacing: 0.5px;
+}
+
+.sidebar-header .subtitle {
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+  margin-top: 3px;
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--rmx-border);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: var(--el-text-color-regular);
+  font-size: 13px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-link:hover {
+  background: var(--el-fill-color-light);
+}
+
+.nav-link.on {
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+
+/* ---------------- 知识库列表 ---------------- */
+
+.kb-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.kb-list-actions {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.kb-list-actions .el-button {
+  flex: 1;
+}
+
+.kb-list-hint {
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.kb-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.kb-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--el-text-color-regular);
+  margin-bottom: 2px;
+}
+
+.kb-item:hover {
+  background: var(--el-fill-color-light);
+}
+
+.kb-item.active {
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+
+.kb-item.disabled {
+  opacity: 0.5;
+}
+
+.kb-icon {
+  flex-shrink: 0;
+}
+
+.kb-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.kb-dot {
+  flex-shrink: 0;
+}
+
+.kb-more {
+  flex-shrink: 0;
+  color: var(--el-text-color-secondary);
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.kb-more:hover {
+  background: var(--el-fill-color);
+  color: var(--el-text-color-primary);
+}
+
+/* ---------------- 右侧主区 ---------------- */
+
+.main-area {
+  flex: 1;
+  overflow: auto;
+}
+
+.kb-main {
+  padding: 18px 24px 28px;
+  max-width: 1200px;
+}
+
+.kb-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.kb-title {
+  margin: 0;
+  font-size: 20px;
+  color: var(--el-text-color-primary);
+}
+
+.kb-desc {
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kb-empty {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.kb-tabs .el-tabs__item {
+  font-size: 14px;
+}
+
+/* ---------------- 通用 ---------------- */
+
+.mono {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+}
+
+.page {
+  padding: 20px 24px;
+  max-width: 1200px;
+}
+
+.page-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.page-sub {
+  margin: 0 0 18px;
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+}
